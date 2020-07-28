@@ -8,7 +8,7 @@ DROP SEQUENCE IF EXISTS billtech_payments_id_seq;
 CREATE SEQUENCE billtech_payments_id_seq;
 CREATE TABLE billtech_payments
 (
-	id               INTEGER DEFAULT nextval('billtech_payments_id_seq' :: TEXT) NOT NULL,
+	id               SERIAL DEFAULT nextval('billtech_payments_id_seq' :: TEXT) NOT NULL,
 	ten              VARCHAR(16) DEFAULT ''                                      NOT NULL,
 	customerid       INTEGER      DEFAULT NULL,
 	amount           NUMERIC(9, 2) DEFAULT 0                                     NOT NULL,
@@ -17,7 +17,8 @@ CREATE TABLE billtech_payments
 	reference_number VARCHAR(255) DEFAULT '',
 	cdate            INTEGER DEFAULT 0                                           NOT NULL,
 	closed           SMALLINT DEFAULT 0                                          NOT NULL,
-	cashid           INTEGER                                                     NULL
+	cashid           INTEGER                                                     NULL,
+	PRIMARY KEY (id),
 );
 
 CREATE TABLE billtech_info
